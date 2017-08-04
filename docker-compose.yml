@@ -1,9 +1,18 @@
-version: '3.3'
+version: '3'
 services:
   web:
-    build: .
-    volumes:
-      - .:/usr/src/app/
-      - /usr/src/app/node_modules
+    image: cuznerdexter/cuzdex-hub:second
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
     ports:
       - "3000:3000"
+    networks:
+      - webnet
+networks:
+  webnet:
