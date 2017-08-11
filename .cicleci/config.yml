@@ -19,7 +19,19 @@ jobs:
     steps:
       - checkout
 
-      - run: yarn install
+      - run: npm install
 
       # run tests!
-      - run: yarn test
+      # - run: yarn test
+
+    deployment:
+      production:
+        branch: master
+        commands:
+
+      staging:
+        branch: node-test-dev
+        commands:
+
+
+
