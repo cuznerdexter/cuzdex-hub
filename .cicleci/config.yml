@@ -9,15 +9,10 @@ jobs:
       # specify the version you desire here
       - image: cuznerdexter/cuzdex-hub:latest
       
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+    working_directory: /usr/src/app
 
-    # working_directory: /usr/src/app
-
-    # steps:
-    #   - checkout
+    steps:
+      - checkout
 
     #   - setup_remote_docker
 
