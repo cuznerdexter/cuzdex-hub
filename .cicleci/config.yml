@@ -14,35 +14,19 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: /usr/src/app
+    # working_directory: /usr/src/app
 
-    steps:
-      - checkout
+    # steps:
+    #   - checkout
 
-      - setup_remote_docker
+    #   - setup_remote_docker
 
-      - deploy:
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
-              docker login -u $DOCKER_USER -p DOCKER_PASS
-              docker push cuznerdexter/cuz-dex-hub:latest
-              ssh -v $DEPLOY_USER@$DEPLOY_HOST "cd ~/usr/src/app; docker pull cuznerdexter/cuz-dex-hub:latest"
-            fi
-
-# - run: npm install
-      # run tests!
-      # - run: yarn test
-
-# production:
-#   branch: master
-#   commands:
-
-# staging:
-#   branch: node-test-dev
-#   commands:
-#     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-#     - docker push cuznerdexter/cuz-dex-hub
-#     - ./deploy.sh
-
+    #   - deploy:
+    #       command: |
+    #         if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+    #           docker login -u $DOCKER_USER -p DOCKER_PASS
+    #           docker push cuznerdexter/cuz-dex-hub:latest
+    #           ssh -v $DEPLOY_USER@$DEPLOY_HOST "cd ~/usr/src/app; docker pull cuznerdexter/cuz-dex-hub:latest"
+    #         fi
 
 
