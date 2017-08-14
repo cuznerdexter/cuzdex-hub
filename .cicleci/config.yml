@@ -14,14 +14,15 @@ jobs:
     steps:
       - checkout
 
-    #   - setup_remote_docker
+      - setup_remote_docker
 
-    #   - deploy:
-    #       command: |
-    #         if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
-    #           docker login -u $DOCKER_USER -p DOCKER_PASS
-    #           docker push cuznerdexter/cuz-dex-hub:latest
-    #           ssh -v $DEPLOY_USER@$DEPLOY_HOST "cd ~/usr/src/app; docker pull cuznerdexter/cuz-dex-hub:latest"
-    #         fi
+      - deploy:
+          command: 
+            ./deploy.sh
+            # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+            #   docker login -u $DOCKER_USER -p DOCKER_PASS
+            #   docker push cuznerdexter/cuzdex-hub:latest
+            #   ssh -v $DEPLOY_USER@$DEPLOY_HOST "docker pull cuznerdexter/cuzdex-hub:latest"
+            # fi
 
 
