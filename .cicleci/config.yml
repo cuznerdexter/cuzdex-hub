@@ -26,6 +26,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
               docker login -u $DOCKER_USER -p DOCKER_PASS
               docker push cuznerdexter/cuz-dex-hub:latest
+              ssh -v $DEPLOY_USER@$DEPLOY_HOST "cd ~/usr/src/app; docker pull cuznerdexter/cuz-dex-hub:latest"
             fi
 
 # - run: npm install
