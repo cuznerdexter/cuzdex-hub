@@ -9,7 +9,7 @@ echo "pulling latest version of the code"
 ssh $DEPLOY_USER@$DEPLOY_HOST 'docker pull cuznerdexter/cuzdex-hub:latest'
 
 echo "starting new version"
-ssh $DEPLOY_USER@$DEPLOY_HOST 'docker run -d --restart=always --name dodsv -p 3000:4000 cuznerdexter/cuzdex-hub:latest'
+ssh $DEPLOY_USER@$DEPLOY_HOST 'docker run -d --restart=always --name dodsv -p 3000:5000 cuznerdexter/cuzdex-hub:latest'
 echo "success!"
 
 exit 0
