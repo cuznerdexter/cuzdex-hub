@@ -14,6 +14,6 @@ ssh $DEPLOY_USER@$DEPLOY_HOST 'docker-compose down cuznerdexter/cuzdex-hub:lates
 # echo "success!"
 
 echo "pulling latest version of the code"
-ssh $DEPLOY_USER@$DEPLOY_HOST 'docker-compose up cuznerdexter/cuzdex-hub:latest'
+ssh $DEPLOY_USER@$DEPLOY_HOST 'docker-compose up -d cuznerdexter/cuzdex-hub:latest'
 
 exit 0
