@@ -25,6 +25,7 @@ jobs:
 
       - deploy:
           command: 
+            echo "TRYING TO DEPLOY ..."
             ./deploy.sh
 
             # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
