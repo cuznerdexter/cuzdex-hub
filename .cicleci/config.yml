@@ -16,6 +16,10 @@ jobs:
       - checkout
       - run: echo "DEXTER after checkout"
 
+      - test:
+          override:
+            - echo "no testing done"
+
       # - run:
       #   name: Install Docker Compose
       #   command: |
