@@ -12,13 +12,7 @@ jobs:
     working_directory: /usr/src/app
 
     steps:
-      - run: echo "DEXTER before checkout"
       - checkout
-      - run: echo "DEXTER after checkout"
-
-      - test:
-          override:
-            - echo "no testing done"
 
       # - run:
       #   name: Install Docker Compose
@@ -29,15 +23,14 @@ jobs:
 
       # - setup_remote_docker
 
-      - run: echo "DEXTER before deploy"
       - deploy:
           command: 
             ./deploy.sh
+
             # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
             #   docker login -u $DOCKER_USER -p DOCKER_PASS
             #   docker push cuznerdexter/cuzdex-hub:latest
             #   ssh -v $DEPLOY_USER@$DEPLOY_HOST "docker pull cuznerdexter/cuzdex-hub:latest"
             # fi
 
-      - run: echo "DEXTER after deploy"
 
