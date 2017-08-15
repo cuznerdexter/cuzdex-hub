@@ -5,6 +5,7 @@ module.exports = function(config) {
     browsers: ['Chrome'],
     colors: true,
     reporters: ['dots', 'progress'],
-    files: [{pattern: './*.spec.js'}]
+    files: [{pattern: './*.spec.js'}],
+    singleRun: true
   });
 };
