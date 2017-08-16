@@ -20,10 +20,12 @@ jobs:
 
       - run:
         command: |
+          set -x
           if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
             ssh $DEPLOY_USER@$DEPLOY_HOST
-            "docker login -u $DOCKER_USER -p DOCKER_PASS 
-            docker-compose up -d cuznerdexter/cuzdex-hub:latest
+            "set -x
+            docker login -u $DOCKER_USER -p DOCKER_PASS 
+            docker run -d cuznerdexter/cuzdex-hub:latest
             "
           fi
 
