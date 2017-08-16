@@ -33,4 +33,8 @@ jobs:
             #   ssh -v $DEPLOY_USER@$DEPLOY_HOST "docker pull cuznerdexter/cuzdex-hub:latest"
             # fi
 
+            if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+              echo "pulling latest version of the code"
+              ssh $DEPLOY_USER@$DEPLOY_HOST "docker login -u $DOCKER_USER -p DOCKER_PASS docker-compose up -d cuznerdexter/cuzdex-hub:latest"
+            fi
 
