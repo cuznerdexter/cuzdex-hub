@@ -1,40 +1,45 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: cuznerdexter/cuzdex-hub:latest
       
     working_directory: /usr/src/app
 
     steps:
       - checkout
-      - setup_remote_docker
-
-      # - run:
-      #   name: Install Docker Compose
-      #   command: |
-      #     set -x
-      #     curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-      #     chmod +x /usr/local/bin/docker-compose
 
       - run:
-          command: 
-            echo "TRYING TO DEPLOY ..."
-            # ./deploy.sh
+        name: Install Docker Compose
+        command: |
+          set -x
+          curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+          chmod +x /usr/local/bin/docker-compose
+      
+      - setup_remote_docker
 
-            # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
-            #   docker login -u $DOCKER_USER -p DOCKER_PASS
-            #   docker push cuznerdexter/cuzdex-hub:latest
-            #   ssh -v $DEPLOY_USER@$DEPLOY_HOST "docker pull cuznerdexter/cuzdex-hub:latest"
-            # fi
+      - run:
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+            ssh $DEPLOY_USER@$DEPLOY_HOST
+            "docker login -u $DOCKER_USER -p DOCKER_PASS 
+            docker-compose up -d cuznerdexter/cuzdex-hub:latest
+            "
+          fi
 
-            if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
-              echo "pulling latest version of the code"
-              ssh $DEPLOY_USER@$DEPLOY_HOST "docker login -u $DOCKER_USER -p DOCKER_PASS docker-compose up -d cuznerdexter/cuzdex-hub:latest"
-            fi
+#       - run:
+#           command: 
+#             echo "TRYING TO DEPLOY ..."
+#             # ./deploy.sh
+
+#             # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+#             #   docker login -u $DOCKER_USER -p DOCKER_PASS
+#             #   docker push cuznerdexter/cuzdex-hub:latest
+#             #   ssh -v $DEPLOY_USER@$DEPLOY_HOST "docker pull cuznerdexter/cuzdex-hub:latest"
+#             # fi
+
+#             if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
+#               echo "pulling latest version of the code"
+#               ssh $DEPLOY_USER@$DEPLOY_HOST "docker login -u $DOCKER_USER -p DOCKER_PASS docker-compose up -d cuznerdexter/cuzdex-hub:latest"
+#             fi
 
