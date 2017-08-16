@@ -10,8 +10,8 @@ jobs:
       - checkout
 
       - run:
-        name: Install Docker Compose
-        command: |
+          name: Install Docker Compose
+          command: |
           set -x
           curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
           chmod +x /usr/local/bin/docker-compose
@@ -19,7 +19,7 @@ jobs:
       - setup_remote_docker
 
       - run:
-        command: |
+          command: |
           set -x
           if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
             ssh $DEPLOY_USER@$DEPLOY_HOST
