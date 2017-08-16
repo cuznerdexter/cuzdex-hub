@@ -25,7 +25,7 @@ jobs:
       - run:
           command: 
             echo "TRYING TO DEPLOY ..."
-            ./deploy.sh
+            # ./deploy.sh
 
             # if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
             #   docker login -u $DOCKER_USER -p DOCKER_PASS
