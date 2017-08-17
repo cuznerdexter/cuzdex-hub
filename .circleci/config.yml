@@ -13,7 +13,7 @@ jobs:
             chmod +x /usr/local/bin/docker-compose 
       - setup_remote_docker
       - run:
-          name: Deployer
+          name: Deployer cuzdex-hub
           command: |
             if [ "${CIRCLE_BRANCH}" == "node-test-dev" ]; then
               ssh $DEPLOY_USER@$DEPLOY_HOST
