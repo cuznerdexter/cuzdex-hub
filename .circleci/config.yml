@@ -11,6 +11,7 @@ jobs:
             - "7a:f2:fa:72:60:2c:3c:7e:56:2a:8f:1f:d2:12:8d:3e"
             - "8a:16:bb:e8:ed:11:ee:96:4f:bd:ad:03:e8:d0:8c:42"
             - "26:95:25:51:5c:8c:ba:48:97:50:a9:8a:d7:56:ba:62"
+            
       - run:
           name: Install Docker Compose
           command: |
