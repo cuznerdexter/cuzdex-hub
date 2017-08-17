@@ -6,6 +6,9 @@ jobs:
     working_directory: /usr/src/app
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "MD5:8a:16:bb:e8:ed:11:ee:96:4f:bd:ad:03:e8:d0:8c:42"
       - run:
           name: Install Docker Compose
           command: |
