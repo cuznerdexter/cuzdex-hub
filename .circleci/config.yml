@@ -9,6 +9,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "7a:f2:fa:72:60:2c:3c:7e:56:2a:8f:1f:d2:12:8d:3e"
+            - "7a:f2:fa:72:60:2c:3c:7e:56:2a:8f:1f:d2:12:8d:3e"
       - run:
           name: Install Docker Compose
           command: |
